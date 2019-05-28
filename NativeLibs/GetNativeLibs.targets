@@ -1,0 +1,42 @@
+<Project>
+  <PropertyGroup>
+    <AAR_ARCoreVersion>1.7.0</AAR_ARCoreVersion>
+	<AAR_SpatialAnchorsVersion>1.1.1</AAR_SpatialAnchorsVersion>
+	<AAR_ARCoreDownloadURL>https://dl.google.com/dl/android/maven2/com/google/ar/core/$(AAR_ARCoreVersion)/core-$(AAR_ARCoreVersion).aar</AAR_ARCoreDownloadURL>
+	<AAR_SpatialAnchorsDownloadURL>https://microsoft.bintray.com/AzureSpatialAnchors/com/microsoft/azure/spatialanchors/spatialanchors_java/$(AAR_SpatialAnchorsVersion)/spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar</AAR_SpatialAnchorsDownloadURL>
+  </PropertyGroup>
+  
+  <Target Name="GetAARFiles" BeforeTargets="ResolveLibraryProjects">
+    <DownloadFile Address="$(AAR_ARCoreDownloadURL)"
+	              FileName="$(MSBuildThisFileDirectory)core-$(AAR_ARCoreVersion).aar"
+                  Condition="!Exists('$(MSBuildThisFileDirectory)core-$(AAR_ARCoreVersion).aar')" />
+				  
+	<DownloadFile Address="$(AAR_SpatialAnchorsDownloadURL)"
+	              FileName="$(MSBuildThisFileDirectory)spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar"
+                  Condition="!Exists('$(MSBuildThisFileDirectory)spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar')" />
+  </Target>
+
+ <UsingTask TaskName="DownloadFile" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <Address ParameterType="System.String" Required="true" />
+      <FileName ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System" />
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+		    Log.LogMessage("Downloading '" + Address + "' to '" + FileName + "'...", MessageImportance.High);
+			try {
+		       new System.Net.WebClient().DownloadFile(Address, FileName);
+			}
+			catch(System.Exception)
+			{
+			   Log.LogError("Failed to download dependency from " + Address);
+			   return false;
+			}
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>
+

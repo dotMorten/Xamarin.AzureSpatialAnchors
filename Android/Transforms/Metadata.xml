@@ -1,0 +1,36 @@
+﻿<metadata>
+  <attr path="/api/package[@name='com.google.ar.core']" name="managedName">Google.AR.Core</attr>
+  <attr path="/api/package[@name='com.google.ar.core.annotations']" name="managedName">Google.AR.Core.Annotations</attr>
+  <attr path="/api/package[@name='com.google.ar.core.exceptions']" name="managedName">Google.AR.Core.Exceptions</attr>
+
+
+  <!-- Normalize the namespace for .NET -->
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']" name="managedName">Microsoft.Azure.SpatialAnchors</attr>
+  <attr path="/api/package[@name='com.microsoft']" name="managedName">Microsoft</attr>
+  <attr path="/api/package[@name='com.xbox.httpclient']" name="managedName">Microsoft.Xbox.HttpClient</attr>
+  <remove-node path="/api/package[@name='com.microsoft.internal']" />
+
+  <!-- Don't need these listener interfaces for the Xamarin binding/public API, so hide them (don't remove as they are still needed for the public events) -->
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='SessionUpdatedListener']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='SessionErrorListener']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='OnLogDebugListener']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='LocateAnchorsCompletedListener']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='AnchorLocatedListener']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='TokenRequiredListener']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']//class[@name='CloudSpatialAnchorSession']/method[@name='addAnchorLocatedListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.AnchorLocatedListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']//class[@name='CloudSpatialAnchorSession']/method[@name='removeAnchorLocatedListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.AnchorLocatedListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']//class[@name='CloudSpatialAnchorSession']/method[@name='addSessionUpdatedListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.SessionUpdatedListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']//class[@name='CloudSpatialAnchorSession']/method[@name='removeSessionUpdatedListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.SessionUpdatedListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='addErrorListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.SessionErrorListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='removeErrorListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.SessionErrorListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='addOnLogDebugListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.OnLogDebugListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='removeOnLogDebugListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.OnLogDebugListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='addLocateAnchorsCompletedListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.LocateAnchorsCompletedListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='removeLocateAnchorsCompletedListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.LocateAnchorsCompletedListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='addTokenRequiredListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.TokenRequiredListener']]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='removeTokenRequiredListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.TokenRequiredListener']]" name="visibility">internal</attr>
+
+  <!-- Change a parameter name from the generic p0 to a more meaningful one. --><!--
+  <attr path="/api/package[@name='com.evernote.android.job']/class[@name='JobManager']/method[@name='forceApi']/parameter[@name='p0']"
+      name="name">api</attr>-->
+</metadata>

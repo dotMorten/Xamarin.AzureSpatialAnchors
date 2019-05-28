@@ -1,0 +1,1 @@
+https://microsoft.bintray.com/AzureSpatialAnchors/com/microsoft/azure/spatialanchors/spatialanchors_java/
