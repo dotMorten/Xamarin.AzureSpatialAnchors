@@ -18,10 +18,10 @@ namespace TestApp
     class AzureSpatialAnchorsManager
     {
         // Set this string to the account ID provided for the Azure Spatial Service resource.
-        public readonly string SpatialAnchorsAccountId = "Set me";
+        public static readonly string SpatialAnchorsAccountId = "Set me";
 
         // Set this string to the account key provided for the Azure Spatial Service resource.
-        public readonly string SpatialAnchorsAccountKey = "Set me";
+        public static readonly string SpatialAnchorsAccountKey = "Set me";
 
         private readonly IExecutorService executorService = Executors.NewFixedThreadPool(2);
         private readonly CloudSpatialAnchorSession spatialAnchorsSession;
@@ -37,6 +37,26 @@ namespace TestApp
             spatialAnchorsSession.LogDebug += SpatialAnchorsSession_LogDebug;
             spatialAnchorsSession.Error += SpatialAnchorsSession_Error;
         }
+
+        public event EventHandler<SessionUpdatedEventArgs> SessionUpdated
+        {
+            add { spatialAnchorsSession.SessionUpdated += value; }
+            remove { spatialAnchorsSession.SessionUpdated -= value; }
+        }
+
+        public event EventHandler<LocateAnchorsCompletedEventArgs> LocateAnchorsCompleted
+        {
+            add { spatialAnchorsSession.LocateAnchorsCompleted += value; }
+            remove { spatialAnchorsSession.LocateAnchorsCompleted -= value; }
+        }
+
+        public event EventHandler<AnchorLocatedEventArgs> AnchorLocated
+        {
+            add { spatialAnchorsSession.AnchorLocated += value; }
+            remove { spatialAnchorsSession.AnchorLocated -= value; }
+        }
+
+
 
         public Task CreateAnchorAsync(CloudSpatialAnchor anchor)
         {

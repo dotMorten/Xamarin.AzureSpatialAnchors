@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidSupportedAbis>arm64-v8a;x86;armeabi-v7a</AndroidSupportedAbis>
+    <AndroidDexTool>d8</AndroidDexTool>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,10 +57,13 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnchorVisual.cs" />
+    <Compile Include="AzureSpatialAnchorsActivity.cs" />
     <Compile Include="AzureSpatialAnchorsManager.cs" />
     <Compile Include="DisplayRotationHelper.cs" />
     <Compile Include="HelloARActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MainThreadContext.cs" />
     <Compile Include="Rendering\BackgroundRenderer.cs" />
     <Compile Include="Rendering\ObjectRenderer.cs" />
     <Compile Include="Rendering\PlaneAttachment.cs" />
@@ -68,6 +72,7 @@
     <Compile Include="Rendering\ShaderUtil.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SceneformHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -111,6 +116,12 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Android.SceneForm.Rendering">
+      <Version>1.8.0-preview1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.SceneForm.UX">
+      <Version>1.8.0-preview1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.1" />

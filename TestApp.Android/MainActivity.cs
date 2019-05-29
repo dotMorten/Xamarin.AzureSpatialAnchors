@@ -35,17 +35,17 @@ namespace TestApp
         [Export("onBasicDemoClick")]
         public void onBasicDemoClick(View v)
         {
-            //Intent intent = new Intent(this, typeof(AzureSpatialAnchorsActivity));
-            //intent.PutExtra("BasicDemo", true);
-            //StartActivity(intent);
+            Intent intent = new Intent(this, typeof(AzureSpatialAnchorsActivity));
+            intent.PutExtra("BasicDemo", true);
+            StartActivity(intent);
         }
 
         [Export("onNearbyDemoClick")]
         public void onNearbyDemoClick(View v)
         {
-            //Intent intent = new Intent(this, typeof(AzureSpatialAnchorsActivity));
-            //intent.PutExtra("BasicDemo", false);
-            //StartActivity(intent);
+            Intent intent = new Intent(this, typeof(AzureSpatialAnchorsActivity));
+            intent.PutExtra("BasicDemo", false);
+            StartActivity(intent);
         }
 
         [Export("onSharedDemoClick")]

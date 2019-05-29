@@ -106,7 +106,6 @@ namespace TestApp
             mSurfaceView.SetRenderer(this);
             mSurfaceView.RenderMode = Rendermode.Continuously;
 
-            AzureSpatialAnchorsManager manager = new AzureSpatialAnchorsManager(mSession);
         }
 
 
