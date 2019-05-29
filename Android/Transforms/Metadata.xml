@@ -9,8 +9,26 @@
   <attr path="/api/package[@name='com.microsoft']" name="managedName">Microsoft</attr>
   <attr path="/api/package[@name='com.xbox.httpclient']" name="managedName">Microsoft.Xbox.HttpClient</attr>
   <remove-node path="/api/package[@name='com.microsoft.internal']" />
+  
+  <!-- Make future-returning methods internal - we'll expose them as tasks elsewhere -->
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='createAnchorAsync']" name="managedName">CreateAnchorAsync_Internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='createAnchorAsync']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='deleteAnchorAsync']" name="managedName">DeleteAnchorAsync_Internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='deleteAnchorAsync']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='getAccessTokenWithAccountKeyAsync']" name="managedName">GetAccessTokenWithAccountKeyAsync_Internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='getAccessTokenWithAccountKeyAsync']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='getAccessTokenWithAuthenticationTokenAsync']" name="managedName">GetAccessTokenWithAuthenticationTokenAsync_Internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='getAccessTokenWithAuthenticationTokenAsync']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='getAnchorPropertiesAsync']" name="managedName">GetAnchorPropertiesAsync_Internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='getAnchorPropertiesAsync']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='refreshAnchorPropertiesAsync']" name="managedName">RefreshAnchorPropertiesAsync_Internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='refreshAnchorPropertiesAsync']" name="visibility">internal</attr> 
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='getSessionStatusAsync' and count(parameter)=0]" name="managedName">SessionStatusAsync_Internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='getSessionStatusAsync' and count(parameter)=0]" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='updateAnchorPropertiesAsync']" name="managedName">UpdateAnchorPropertiesAsync_Internal</attr>
+  <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='updateAnchorPropertiesAsync']" name="visibility">internal</attr>
 
-  <!-- Don't need these listener interfaces for the Xamarin binding/public API, so hide them (don't remove as they are still needed for the public events) -->
+  <!-- Don't need these listener interfaces for the Xamarin binding/public API, so hide them (don't remove as they are still needed for the public events) --> 
   <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='SessionUpdatedListener']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='SessionErrorListener']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/interface[@name='OnLogDebugListener']" name="visibility">internal</attr>
@@ -30,7 +48,8 @@
   <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='addTokenRequiredListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.TokenRequiredListener']]" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.microsoft.azure.spatialanchors']/class[@name='CloudSpatialAnchorSession']/method[@name='removeTokenRequiredListener' and count(parameter)=1 and parameter[1][@type='com.microsoft.azure.spatialanchors.TokenRequiredListener']]" name="visibility">internal</attr>
 
-  <!-- Change a parameter name from the generic p0 to a more meaningful one. --><!--
-  <attr path="/api/package[@name='com.evernote.android.job']/class[@name='JobManager']/method[@name='forceApi']/parameter[@name='p0']"
-      name="name">api</attr>-->
+  
+  <!-- Change a parameter name from the generic p0 to a more meaningful one. -->
+  <!--<attr path="/api/package[@name='com.evernote.android.job']/class[@name='JobManager']/method[@name='forceApi']/parameter[@name='p0']"
+      name="name">api</attr>-->-->
 </metadata>

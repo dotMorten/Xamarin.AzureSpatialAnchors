@@ -4,8 +4,24 @@
           android:versionName="1.0" 
           package="com.companyname.TestApp">
   <uses-sdk android:minSdkVersion="27" android:targetSdkVersion="28" />
-  <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
-  </application>
+
+  <uses-feature
+        android:name="android.hardware.camera.ar"
+        android:required="true" />
+		
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+
+
+  <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+  
+    <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
+			
+  </application>
 </manifest>
