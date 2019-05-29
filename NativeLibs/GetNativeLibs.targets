@@ -4,6 +4,7 @@
 	<AAR_SpatialAnchorsVersion>1.1.1</AAR_SpatialAnchorsVersion>
 	<AAR_ARCoreDownloadURL>https://dl.google.com/dl/android/maven2/com/google/ar/core/$(AAR_ARCoreVersion)/core-$(AAR_ARCoreVersion).aar</AAR_ARCoreDownloadURL>
 	<AAR_SpatialAnchorsDownloadURL>https://microsoft.bintray.com/AzureSpatialAnchors/com/microsoft/azure/spatialanchors/spatialanchors_java/$(AAR_SpatialAnchorsVersion)/spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar</AAR_SpatialAnchorsDownloadURL>
+	<AAR_SpatialAnchorsJNIDownloadURL>https://microsoft.bintray.com/AzureSpatialAnchors/com/microsoft/azure/spatialanchors/spatialanchors_jni/$(AAR_SpatialAnchorsVersion)/spatialanchors_jni-$(AAR_SpatialAnchorsVersion).aar</AAR_SpatialAnchorsJNIDownloadURL>
   </PropertyGroup>
   
   <Target Name="GetAARFiles" BeforeTargets="ResolveLibraryProjects">
@@ -14,7 +15,11 @@
 	<DownloadFile Address="$(AAR_SpatialAnchorsDownloadURL)"
 	              FileName="$(MSBuildThisFileDirectory)spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar"
                   Condition="!Exists('$(MSBuildThisFileDirectory)spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar')" />
-  </Target>
+
+	<DownloadFile Address="$(AAR_SpatialAnchorsJNIDownloadURL)"
+	              FileName="$(MSBuildThisFileDirectory)spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar"
+                  Condition="!Exists('$(MSBuildThisFileDirectory)spatialanchors_jni-$(AAR_SpatialAnchorsVersion).aar')" />
+				  </Target>
 
  <UsingTask TaskName="DownloadFile" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
     <ParameterGroup>

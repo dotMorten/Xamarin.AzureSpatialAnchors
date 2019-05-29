@@ -49,12 +49,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="..\NativeLibs\spatialanchors_java-1.1.1.aar">
-      <Link>Jars\spatialanchors_java-1.1.1.aar</Link>
+    <LibraryProjectZip Include="..\NativeLibs\spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar">
+      <Link>Jars\spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar</Link>
     </LibraryProjectZip>
-    <EmbeddedReferenceJar Include="..\NativeLibs\core-1.7.0.aar">
-      <Link>Jars\core-1.7.0.aar</Link>
+    <EmbeddedReferenceJar Include="..\NativeLibs\core-$(AAR_ARCoreVersion).aar">
+      <Link>Jars\core-$(AAR_ARCoreVersion).aar</Link>
     </EmbeddedReferenceJar>
+    <LibraryProjectZip Include="..\NativeLibs\spatialanchors_jni-$(AAR_SpatialAnchorsVersion).aar">
+      <Link>Jars\spatialanchors_jni-$(AAR_SpatialAnchorsVersion).aar</Link>
+    </LibraryProjectZip>
     <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
   </ItemGroup>
