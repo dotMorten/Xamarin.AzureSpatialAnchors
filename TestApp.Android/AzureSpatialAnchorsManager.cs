@@ -58,7 +58,7 @@ namespace TestApp
 
 
 
-        public Task CreateAnchorAsync(CloudSpatialAnchor anchor)
+        public Task<CloudSpatialAnchor> CreateAnchorAsync(CloudSpatialAnchor anchor)
         {
             return spatialAnchorsSession.CreateAnchorAsync(anchor);
         }

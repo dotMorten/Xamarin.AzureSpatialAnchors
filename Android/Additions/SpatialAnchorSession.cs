@@ -15,7 +15,7 @@ namespace Microsoft.Azure.SpatialAnchors
         /// </summary>
         /// <param name="anchor">Anchor to be persisted.</param>
         /// <returns></returns>
-        public Task CreateAnchorAsync(CloudSpatialAnchor anchor) => CreateAnchorAsync_Internal(anchor).AsAsync();
+        public Task<CloudSpatialAnchor> CreateAnchorAsync(CloudSpatialAnchor anchor) => CreateAnchorAsync_Internal(anchor).AsAsync<CloudSpatialAnchor>();
 
         /// <summary>
         /// Deletes a persisted spatial anchor.

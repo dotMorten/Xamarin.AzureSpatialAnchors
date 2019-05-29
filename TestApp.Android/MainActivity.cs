@@ -51,8 +51,8 @@ namespace TestApp
         [Export("onSharedDemoClick")]
         public void onSharedDemoClick(View v)
         {
-            //Intent intent = new Intent(this, typeof(SharedActivity));
-            //StartActivity(intent);
+            Intent intent = new Intent(this, typeof(SharedActivity));
+            StartActivity(intent);
         }
     }
 }
