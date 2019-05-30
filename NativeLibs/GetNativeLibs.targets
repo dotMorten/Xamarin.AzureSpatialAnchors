@@ -17,7 +17,7 @@
                   Condition="!Exists('$(MSBuildThisFileDirectory)spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar')" />
 
 	<DownloadFile Address="$(AAR_SpatialAnchorsJNIDownloadURL)"
-	              FileName="$(MSBuildThisFileDirectory)spatialanchors_java-$(AAR_SpatialAnchorsVersion).aar"
+	              FileName="$(MSBuildThisFileDirectory)spatialanchors_jni-$(AAR_SpatialAnchorsVersion).aar"
                   Condition="!Exists('$(MSBuildThisFileDirectory)spatialanchors_jni-$(AAR_SpatialAnchorsVersion).aar')" />
 				  </Target>
 
