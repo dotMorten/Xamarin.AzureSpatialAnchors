@@ -75,6 +75,7 @@
     <Compile Include="Rendering\ShaderUtil.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleApplication.cs" />
     <Compile Include="SceneformHelper.cs" />
     <Compile Include="SharedActivity.cs" />
   </ItemGroup>
